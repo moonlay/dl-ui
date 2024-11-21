@@ -1,0 +1,52 @@
+<template>
+    <tr>
+        <td class="col-sm-3">
+            <au-textbox value.bind="data.comodityName" error.bind="error.comodityName" read-only.bind="true"
+                placeholder="Komoditi Barang">
+            </au-textbox>
+        </td>
+
+        <td class="col-sm-2">
+            <au-numeric value.bind="data.quantity" error.bind="error.quantity" read-only.bind="readOnly">
+            </au-numeric>
+        </td>
+
+        <td class="col-sm-2">
+            <au-textbox value.bind="data.uom.unit" error.bind="error.uom" read-only.bind="true" placeholder="Satuan">
+            </au-textbox>
+        </td>
+
+        <td class="col-sm-2">
+            <au-numeric value.bind="data.price" error.bind="error.price" read-only.bind="true">
+            </au-numeric>
+        </td>
+
+        <td class="col-sm-2">
+            <au-numeric value.to-view="total" read-only="true">
+            </au-numeric>
+        </td>
+
+        <td class="col-sm-2">
+            <au-textbox value.bind="data.remark" read-only.bind="true" error.bind="error.remark"
+                options.bind="controlOptions">
+            </au-textbox>
+        </td>
+
+        <td class="col-sm-1">
+            <button class="btn btn-info" click.delegate="toggle()">i</button>
+        </td>
+    </tr>
+
+    <au-textbox error.bind="error.detailsCount" read-only.bind="true" show.bind="error.detailsCount"
+        options.bind="controlOptions">
+    </au-textbox>
+    <tr show.bind="isShowing">
+        <td colspan="5">
+            <au-collection columns.bind="details.columns" items.bind="data.details" errors.bind="error.details"
+                read-only.bind="readOnly" options.bind="details.options" add.bind="details.onAdd"
+                remove.bind="details.onRemove"
+                item-template="modules/garment-shipping/garment-md-local-sales-note/template/detail">
+            </au-collection>
+        </td>
+    </tr>
+</template>

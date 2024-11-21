@@ -1,0 +1,67 @@
+<template>
+    <tr>
+        <td>
+            <au-textbox
+                value.bind="data.comodityName || ''"
+                error.bind="error.comodity"
+                read-only.bind="true">
+            </au-textbox>
+        </td>
+        <td>
+            <au-textbox
+                value.bind="data.description"
+                error.bind="error.description"
+                read-only.bind="readOnly">
+            </au-textbox>
+        </td>
+        <td>
+            <au-numeric
+                value.bind="data.quantity"
+                error.bind="error.quantity"
+                read-only.bind="true">
+            </au-numeric>
+        </td>
+        <td>
+            <au-textbox
+                value.bind="data.uom.unit || ''"
+                error.bind="error.uom"
+                read-only.bind="true">
+            </au-textbox>
+        </td>
+        <td>
+            <au-numeric
+                value.bind="data.packQuantity"
+                error.bind="error.packQuantity"
+                read-only.bind="readOnly">
+            </au-numeric>
+        </td>
+        <td>
+            <au-autocomplete 
+                value.bind="data.packUom" error.bind="error.packUom" 
+                loader.bind="uomLoader" read-only.bind="readOnly" 
+                placeholder="Satuan Kemasan" text.bind="uomView">
+            </au-autocomplete>
+            
+            <!-- <au-textbox
+                value.bind="data.packUom.unit || ''"
+                error.bind="error.packUom"
+                read-only.bind="true">
+            </au-textbox> -->
+        </td>
+        <td>
+            <au-numeric
+                value.bind="data.grossWeight"
+                error.bind="error.grossWeight"
+                read-only.bind="readOnly">
+            </au-numeric>
+        </td>
+        <td>
+            <au-numeric
+                value.bind="data.nettWeight"
+                error.bind="error.nettWeight"
+                read-only.bind="readOnly">
+            </au-numeric>
+        </td>
+     </tr>
+</template>
+

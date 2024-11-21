@@ -1,0 +1,41 @@
+<template>
+    <tr>
+        <td class="col-sm-2">
+            <au-dropdown
+                value.bind="data.comodityName"
+                items.bind="comodityOptions"
+                error.bind="error.comodity"
+                read-only.bind="readOnly">
+            </au-dropdown>
+        </td>
+
+        <td class="col-sm-1">
+            <au-numeric value.bind="data.quantity" error.bind="error.quantity" read-only.bind="readOnly">
+            </au-numeric>
+        </td>
+
+        <td class="col-sm-1">
+            <au-autocomplete value.bind="data.uom" error.bind="error.uom" loader.bind="uomLoader"
+                read-only.bind="readOnly" placeholder="Satuan" text.bind="uomView">
+            </au-autocomplete>
+        </td>
+        
+        <td class="col-sm-1">
+            <au-numeric value.bind="data.price" error.bind="error.price" read-only.bind="readOnly">
+            </au-numeric>
+        </td>
+
+        <td class="col-sm-2">
+            <au-numeric value.to-view="total" read-only="true">
+            </au-numeric>
+        </td>
+
+        <td class="col-sm-2">
+            <au-textbox value.bind="data.remark"
+                        read-only.bind="readOnly"
+                        error.bind="error.remark"
+                        options.bind="controlOptions">
+            </au-textbox>
+        </td>
+    </tr>
+</template>

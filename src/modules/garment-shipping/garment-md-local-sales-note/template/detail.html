@@ -1,0 +1,29 @@
+<template>
+    <tr>
+        <td class="col-sm-3">
+            <au-autocomplete value.bind="selectedBon" error.bind="error.product" loader.bind="bonLoader"
+                read-only.bind="readOnly" placeholder="No Bon" text="bonNo">
+            </au-autocomplete>
+        </td>
+
+        <td class="col-sm-2">
+            <au-numeric value.bind="data.quantity" error.bind="error.quantity" read-only.bind="true">
+            </au-numeric>
+        </td>
+
+        <td class="col-sm-2">
+            <au-textbox value.bind="data.uom.unit" read-only.bind="true">
+            </au-textbox>
+        </td>
+
+        <td class="col-sm-2">
+            <au-textbox value.bind="data.bonFrom" read-only.bind="true">
+            </au-textbox>
+        </td>
+
+
+        <td class="col-sm-1" if.bind="!readOnly">
+            <button class="btn btn-danger pull-right" click.delegate="onremove(data, $event)">-</button>
+        </td>
+    </tr>
+</template>
