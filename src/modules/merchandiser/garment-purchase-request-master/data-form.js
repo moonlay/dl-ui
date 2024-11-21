@@ -1,5 +1,5 @@
 import { inject, bindable, computedFrom } from "aurelia-framework";
-var UnitLoader = require("../../../loader/garment-units-loader");
+var UnitLoader = require("../../../loader/garment-units-gmt-loader");
 var PreSalesContractLoader = require("../../../loader/garment-pre-sales-contracts-loader");
 import { CoreService } from "./service";
 
