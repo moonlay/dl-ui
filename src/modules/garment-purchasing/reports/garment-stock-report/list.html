@@ -1,21 +1,13 @@
 <template>
-    <h1 if.bind ="KtgrItem == ''" class="page-header">LAPORAN STOCK GUDANG</h1>
-    <h1 if.bind ="KtgrItem == 'BAHAN BAKU'" class="page-header">LAPORAN STOCK BAHAN BAKU</h1>
-    <h1 if.bind ="KtgrItem == 'BAHAN EMBALANCE'" class="page-header">LAPORAN STOCK BAHAN EMBALANCE</h1>
-    <h1 if.bind ="KtgrItem == 'BAHAN PENDUKUNG'" class="page-header">LAPORAN STOCK BAHAN PENDUKUNG</h1>
+    <h1 if.bind="KtgrItem == ''" class="page-header">LAPORAN STOCK GUDANG</h1>
+    <h1 if.bind="KtgrItem == 'BAHAN BAKU'" class="page-header">LAPORAN STOCK BAHAN BAKU</h1>
+    <h1 if.bind="KtgrItem == 'BAHAN EMBALANCE'" class="page-header">LAPORAN STOCK BAHAN EMBALANCE</h1>
+    <h1 if.bind="KtgrItem == 'BAHAN PENDUKUNG'" class="page-header">LAPORAN STOCK BAHAN PENDUKUNG</h1>
     <form class="form-horizontal">
-        <au-dropdown 
-              label="Unit" 
-              value.bind="UnitItem"
-              items.bind="UnitItems"
-              options.bind="controlOptions" >
-      </au-dropdown>
-        <au-dropdown 
-              label="Kategori" 
-              value.bind="KtgrItem"
-              items.bind="KategoriItems"
-              options.bind="controlOptions" >
-      </au-dropdown>
+        <au-dropdown label="Unit" value.bind="UnitItem" items.bind="UnitItems" options.bind="controlOptions">
+        </au-dropdown>
+        <au-dropdown label="Kategori" value.bind="KtgrItem" items.bind="KategoriItems" options.bind="controlOptions">
+        </au-dropdown>
         <au-datepicker label="Tanggal Awal" value.bind="dateFrom" options.bind="controlOptions"></au-datepicker>
         <au-datepicker label="Tanggal Akhir" value.bind="dateTo" options.bind="controlOptions"></au-datepicker>
         <div class="form-group">
@@ -27,9 +19,9 @@
         </div>
         <div slot="toolbar" class="btn-group">
             <button class='btn btn-primary' click.delegate="ExportToExcel()">Export To Excel</button>
-          </div>
+        </div>
         <br>
-    
+
         <div class="table-responsive">
             <table class="table table-bordered table-hover" border="1" id="poReport">
                 <thead align="center">
@@ -46,7 +38,7 @@
                         <td align="center" colspan="3">PENERIMAAN</td>
                         <td align="center" colspan="2">PENGELUARAN</td>
                         <td align="center" colspan="2">SALDO AKHIR</td>
-                        <!-- <td align="center" rowspan="2">ASAL</td> -->
+                        <td align="center" rowspan="2">ASAL</td>
                     </tr>
 
                     <tr>
@@ -59,7 +51,7 @@
                         <td align="center">SATUAN</td>
                         <td align="center">JUMLAH</td>
                         <td align="center">SATUAN</td>
-                        
+
                     </tr>
                 </thead>
                 <tbody>
@@ -81,7 +73,7 @@
                         <td>${item.ExpandUom}</td>
                         <td align="right">${item.EndingBalanceQty}</td>
                         <td align="right">${item.EndingUom}</td>
-                        <!-- <td align="right">${item.PaymentMethod}</td> -->
+                        <td align="right">${item.PaymentMethod}</td>
                     </tr>
                     <!-- <tr class="active">
                         <td class="text-center" colspan="8"><strong>T O T A L  . . . . . . . . . . . . . . .</strong></td>
@@ -102,9 +94,9 @@
         <div class="alert alert-info text-center" role="alert" if.bind="data.length === 0">
             Tidak ada data.
         </div>
-        <pagination if.bind="info.total>info.size"  info.bind="info" change.delegate="changePage($event)"></pagination>
-        <hr/>
+        <pagination if.bind="info.total>info.size" info.bind="info" change.delegate="changePage($event)"></pagination>
+        <hr />
     </form>
 
-    
+
 </template>
