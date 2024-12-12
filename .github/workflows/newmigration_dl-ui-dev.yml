@@ -39,5 +39,5 @@ jobs:
         with:
           app-name: 'dl-ui-dev'
           slot-name: 'Production'
-          package: ./dist
+          package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B119D1E127084AD7BAC108BF55B0BAD1 }}
