@@ -18,12 +18,12 @@ jobs:
     - name: Set up Node.js version
       uses: actions/setup-node@v1
       with:
-        node-version: '12.13.0'
+        node-version: '16.15.1'
 
-    - name: npm install, build, and test
+    - name: npm install, build
       run: |
         npm install
-        npm run build:prod
+        npm run build
 
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v1
