@@ -14,7 +14,7 @@ var GarmentMarketingLoader = require('../../../loader/garment-marketings-loader'
 var SizeRangeLoader = require('../../../loader/size-range-loader');
 var ComodityLoader = require('../../../loader/garment-comodities-loader');
 var UOMLoader = require('../../../loader/uom-loader');
-var UnitLoader = require('../../../loader/garment-units-loader');
+var UnitLoader = require('../../../loader/garment-units-gmt-loader');
 
 @inject(Router, BindingEngine, ServiceEffeciency, RateService, Element, ServiceCore)
 export class DataForm {
